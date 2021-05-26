@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">SmartToko</string>
+    <string name="password">Kata Sandi</string>
+    <string name="login">Masuk</string>
+    <string name="kolom_kosong">isikan semua kolom</string>
+    <string name="title_activity_admin">MainActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_additem">tambah barang</string>
+    <string name="title_laporanjual">laporan</string>
+
+    <string name="passwor_salah">username dan password salah</string>
+
+    <string name="kode_barang">kode barang</string>
+    <string name="nama_barang">nama barang</string>
+    <string name="harga_barang">harga barang</string>
+    <string name="jumlah_barang">jumlah barang</string>
+    <string name="insert_barang">Tambah Barang</string>
+    <string name="list_barang">Daftar barang</string>
+
+
+
+
+
+</resources>

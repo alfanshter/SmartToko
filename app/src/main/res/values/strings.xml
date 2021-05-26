@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">SmartToko</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="kolom_kosong">enter all fields</string>
+    <string name="title_activity_admin">MainActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_additem">add item</string>
+    <string name="title_laporanjual">report</string>
+
+    <string name="passwor_salah">Wrong password or username</string>
+
+    <string name="kode_barang">item code</string>
+    <string name="nama_barang">item name</string>
+    <string name="harga_barang">item price</string>
+    <string name="jumlah_barang">number of items</string>
+    <string name="insert_barang">Insert item</string>
+    <string name="list_barang">List item</string>
+
+
+
+
+
+</resources>
