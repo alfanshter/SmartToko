@@ -1,5 +1,7 @@
 package com.imah.smarttoko.admin.ui.home;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -15,6 +17,8 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.imah.smarttoko.MainActivity;
+import com.imah.smarttoko.R;
 import com.imah.smarttoko.admin.TambahActivity;
 import com.imah.smarttoko.admin.adapter.BarangAdapter;
 import com.imah.smarttoko.database.AppDatabase;
@@ -31,6 +35,7 @@ public class HomeFragment extends Fragment {
     private AppDatabase database;
     private BarangAdapter barangAdapter;
     private List<Barang> list = new ArrayList<>();
+    private AlertDialog.Builder dialog;
 
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -41,9 +46,34 @@ public class HomeFragment extends Fragment {
         binding = FragmentHomeBinding.inflate(inflater, container, false);
 
         database = AppDatabase.getInstance(requireContext().getApplicationContext());
+        list.clear();
         list.addAll(database.barangDao().getAll());
-
         barangAdapter = new BarangAdapter(requireContext().getApplicationContext(), list);
+        barangAdapter.setDialog(new BarangAdapter.Dialog() {
+            @Override
+            public void onClick(int position) {
+                final CharSequence[] dialogItem = {String.format(getString(R.string.edit)), String.format(getString(R.string.hapus))};
+                dialog = new AlertDialog.Builder(getActivity());
+                dialog.setItems(dialogItem, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int i) {
+                        switch (i) {
+                            case 0:
+                                //
+                                break;
+                            case 1:
+                                //untuk menghapus data
+                                Barang barang = list.get(position);
+                                database.barangDao().delete(barang);
+                                onStart();
+                                break;
+                        }
+                    }
+                });
+                dialog.show();
+            }
+        });
+
 
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(requireContext().getApplicationContext(), RecyclerView.VERTICAL, false);
         binding.rvListitem.setLayoutManager(layoutManager);

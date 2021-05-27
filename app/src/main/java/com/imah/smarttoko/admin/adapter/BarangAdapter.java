@@ -1,5 +1,6 @@
 package com.imah.smarttoko.admin.adapter;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,6 +20,15 @@ import java.util.List;
 public class BarangAdapter extends RecyclerView.Adapter<BarangAdapter.ViewAdapter> {
     private List<Barang> list;
     private Context context;
+    private Dialog dialog;
+
+    public interface Dialog{
+        void onClick(int position);
+    }
+
+    public void setDialog(Dialog dialog) {
+        this.dialog = dialog;
+    }
 
     public BarangAdapter(Context context, List<Barang> list) {
         this.context = context;
@@ -58,6 +68,14 @@ public class BarangAdapter extends RecyclerView.Adapter<BarangAdapter.ViewAdapte
             jumlahbarang = itemView.findViewById(R.id.txt_jumlahbarang);
             kodebarang = itemView.findViewById(R.id.txt_kodebarang);
             diskon = itemView.findViewById(R.id.txt_diskon);
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (dialog!=null){
+                        dialog.onClick(getLayoutPosition());
+                    }
+                }
+            });
         }
     }
 }
