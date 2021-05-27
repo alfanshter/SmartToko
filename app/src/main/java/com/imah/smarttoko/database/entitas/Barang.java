@@ -17,5 +17,8 @@ public class Barang {
     public Integer harga;
     @ColumnInfo(name = "jumlah_barang")
     public Integer jumlah;
+    @ColumnInfo(name = "diskon_barang")
+    public Integer diskon_barang;
+
 
 }

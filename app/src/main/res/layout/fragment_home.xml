@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".admin.ui.home.HomeFragment"
-    android:background="@color/white">
+    android:background="#FFF7F7">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -25,10 +25,10 @@
 
         <RelativeLayout
             android:layout_marginTop="10dp"
+            android:background="#FFF7F7"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/textmenu1"
-            android:background="#ffffff"
             android:id="@+id/btn_additem">
 
             <ImageView
@@ -74,12 +74,13 @@
             android:layout_below="@+id/txt_menu1"
             android:layout_marginTop="10dp"
             android:orientation="vertical"
-            android:background="#ffffff"
+            android:background="#FFF7F7"
             android:id="@+id/barismenu4">
 
 
             <androidx.recyclerview.widget.RecyclerView
                 android:layout_width="match_parent"
+
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:layout_marginLeft="10dp"

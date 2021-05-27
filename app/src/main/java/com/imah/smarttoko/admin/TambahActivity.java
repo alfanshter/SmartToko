@@ -30,14 +30,14 @@ public class TambahActivity extends AppCompatActivity {
             public void onClick(View v) {
                 int harga_barang = Integer.parseInt(binding.edtHargabarang.getText().toString());
                 int jumlah_barang = Integer.parseInt(binding.edtJumlahbarang.getText().toString());
+                String kode_barang = binding.edtKodebarang.getText().toString();
 
-                Barang barang = new Barang();
-                barang.nama_barang = binding.edtNamabarang.getText().toString();
-                barang.harga = harga_barang;
-                barang.kode_barang = binding.edtKodebarang.getText().toString();
-                barang.jumlah = jumlah_barang;
+                //split dulu integer dan string
+                String[] part = kode_barang.split("(?<=\\D)(?=\\d)");
+                Integer diskon = Integer.valueOf(part[1]);
+
                 database.barangDao().insertAll(binding.edtKodebarang.getText().toString(), binding.edtNamabarang.getText().toString(),
-                        harga_barang,jumlah_barang);
+                        harga_barang, jumlah_barang, diskon);
                 finish();
             }
         });

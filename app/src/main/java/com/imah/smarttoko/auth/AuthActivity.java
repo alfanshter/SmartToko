@@ -15,6 +15,7 @@ import com.google.android.material.snackbar.Snackbar;
 import com.imah.smarttoko.R;
 import com.imah.smarttoko.SplashscreenActivity;
 import com.imah.smarttoko.admin.AdminActivity;
+import com.imah.smarttoko.session.Preferences;
 
 public class AuthActivity extends AppCompatActivity {
 
@@ -37,6 +38,10 @@ public class AuthActivity extends AppCompatActivity {
 
                 if (!TextUtils.isEmpty(edt_email) && !TextUtils.isEmpty(edt_password)){
                     if (edt_email.equals("Penjualan") && edt_password.equals("jual")){
+                        Preferences.setLoggedInUser(getBaseContext(),Preferences.getRegisteredUser(getBaseContext()));
+                        Preferences.setLoggedInStatus(getBaseContext(),true);
+
+                        Preferences.setIsLogin(getBaseContext(),"Penjualan");
                         Intent intent = new Intent(AuthActivity.this, AdminActivity.class);
                         startActivity(intent);
                         finish();
@@ -53,5 +58,17 @@ public class AuthActivity extends AppCompatActivity {
 //                startActivity(intent);
             }
         });
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        if (Preferences.getIsLogin(getBaseContext()).equals("Penjualan")){
+            Intent intent = new Intent(AuthActivity.this, AdminActivity.class);
+            startActivity(intent);
+            finish();
+        }else if (Preferences.getIsLogin(getBaseContext()).equals("Pembeli")){
+
+        }
     }
 }

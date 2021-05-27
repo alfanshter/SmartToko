@@ -14,8 +14,8 @@ public interface BarangDao {
     @Query("SELECT * FROM Barang")
     List<Barang> getAll();
 
-    @Query("INSERT INTO Barang (kode_barang,nama_barang,harga_barang,jumlah_barang) VALUES(:kode_barang,:nama_barang,:harga_barang,:jumlah_barang)")
-    void insertAll(String kode_barang,String nama_barang, Integer harga_barang, Integer jumlah_barang);
+    @Query("INSERT INTO Barang (kode_barang,nama_barang,harga_barang,jumlah_barang,diskon_barang) VALUES(:kode_barang,:nama_barang,:harga_barang,:jumlah_barang,:diskon_barang)")
+    void insertAll(String kode_barang,String nama_barang, Integer harga_barang, Integer jumlah_barang, Integer diskon_barang);
 
     @Delete
     void delete(Barang barang);
