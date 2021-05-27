@@ -18,8 +18,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.imah.smarttoko.admin.TambahActivity;
 import com.imah.smarttoko.admin.adapter.BarangAdapter;
 import com.imah.smarttoko.database.AppDatabase;
+import com.imah.smarttoko.database.entitas.Barang;
 import com.imah.smarttoko.databinding.FragmentHomeBinding;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public class HomeFragment extends Fragment {
@@ -27,6 +30,8 @@ public class HomeFragment extends Fragment {
     private FragmentHomeBinding binding;
     private AppDatabase database;
     private BarangAdapter barangAdapter;
+    private List<Barang> list = new ArrayList<>();
+
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -36,9 +41,11 @@ public class HomeFragment extends Fragment {
         binding = FragmentHomeBinding.inflate(inflater, container, false);
 
         database = AppDatabase.getInstance(requireContext().getApplicationContext());
-        barangAdapter = new BarangAdapter(requireContext().getApplicationContext(), database.barangDao().getAll());
+        list.addAll(database.barangDao().getAll());
 
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(requireContext().getApplicationContext(),RecyclerView.VERTICAL,false);
+        barangAdapter = new BarangAdapter(requireContext().getApplicationContext(), list);
+
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(requireContext().getApplicationContext(), RecyclerView.VERTICAL, false);
         binding.rvListitem.setLayoutManager(layoutManager);
         binding.rvListitem.setAdapter(barangAdapter);
 
@@ -51,6 +58,15 @@ public class HomeFragment extends Fragment {
 
 
         return binding.getRoot();
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        list.clear();
+        list.addAll(database.barangDao().getAll());
+        barangAdapter.notifyDataSetChanged();
+
     }
 
     @Override
