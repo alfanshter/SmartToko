@@ -4,11 +4,11 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class AdditemViewModel extends ViewModel {
+public class LaporanViewModel extends ViewModel {
 
     private MutableLiveData<String> mText;
 
-    public AdditemViewModel() {
+    public LaporanViewModel() {
         mText = new MutableLiveData<>();
         mText.setValue("This is dashboard fragment");
     }

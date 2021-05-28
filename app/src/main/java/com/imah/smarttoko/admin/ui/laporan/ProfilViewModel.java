@@ -4,11 +4,11 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class LaporanViewModel extends ViewModel {
+public class ProfilViewModel extends ViewModel {
 
     private MutableLiveData<String> mText;
 
-    public LaporanViewModel() {
+    public ProfilViewModel() {
         mText = new MutableLiveData<>();
         mText.setValue("This is notifications fragment");
     }

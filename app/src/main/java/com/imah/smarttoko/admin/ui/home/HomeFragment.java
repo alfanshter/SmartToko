@@ -1,13 +1,16 @@
 package com.imah.smarttoko.admin.ui.home;
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -55,11 +58,15 @@ public class HomeFragment extends Fragment {
                 final CharSequence[] dialogItem = {String.format(getString(R.string.edit)), String.format(getString(R.string.hapus))};
                 dialog = new AlertDialog.Builder(getActivity());
                 dialog.setItems(dialogItem, new DialogInterface.OnClickListener() {
+                    @SuppressLint("ShowToast")
                     @Override
                     public void onClick(DialogInterface dialog, int i) {
                         switch (i) {
                             case 0:
-                                //
+                                Log.d("tester", String.valueOf(list.get(position).id));
+                                Intent intent = new Intent(requireContext().getApplicationContext(), TambahActivity.class);
+                                intent.putExtra("id", String.valueOf(list.get(position).id));
+                                startActivity(intent);
                                 break;
                             case 1:
                                 //untuk menghapus data

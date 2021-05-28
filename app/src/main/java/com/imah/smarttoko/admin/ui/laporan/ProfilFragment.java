@@ -13,15 +13,15 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.imah.smarttoko.databinding.FragmentNotificationsBinding;
 
-public class LaporanFragment extends Fragment {
+public class ProfilFragment extends Fragment {
 
-    private LaporanViewModel notificationsViewModel;
+    private ProfilViewModel notificationsViewModel;
 private FragmentNotificationsBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
             ViewGroup container, Bundle savedInstanceState) {
         notificationsViewModel =
-                new ViewModelProvider(this).get(LaporanViewModel.class);
+                new ViewModelProvider(this).get(ProfilViewModel.class);
 
     binding = FragmentNotificationsBinding.inflate(inflater, container, false);
     View root = binding.getRoot();

@@ -13,13 +13,13 @@
 
     <fragment
         android:id="@+id/navigation_dashboard"
-        android:name="com.imah.smarttoko.admin.ui.additem.AdditemFragment"
+        android:name="com.imah.smarttoko.admin.ui.additem.LaporanFragment"
         android:label="@string/title_additem"
-        tools:layout="@layout/fragment_dashboard" />
+        tools:layout="@layout/fragment_laporan" />
 
     <fragment
         android:id="@+id/navigation_notifications"
-        android:name="com.imah.smarttoko.admin.ui.laporan.LaporanFragment"
+        android:name="com.imah.smarttoko.admin.ui.laporan.ProfilFragment"
         android:label="@string/title_laporanjual"
         tools:layout="@layout/fragment_notifications" />
 </navigation>

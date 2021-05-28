@@ -9,18 +9,12 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-import androidx.navigation.ui.AppBarConfiguration;
-import androidx.navigation.ui.NavigationUI;
 
 import com.imah.smarttoko.R;
-import com.imah.smarttoko.admin.ui.additem.AdditemFragment;
+import com.imah.smarttoko.admin.ui.additem.LaporanFragment;
 import com.imah.smarttoko.admin.ui.home.HomeFragment;
-import com.imah.smarttoko.admin.ui.laporan.LaporanFragment;
+import com.imah.smarttoko.admin.ui.laporan.ProfilFragment;
 import com.imah.smarttoko.databinding.ActivityAdminBinding;
-
-import org.jetbrains.annotations.NotNull;
 
 public class AdminActivity extends AppCompatActivity implements  BottomNavigationView.OnNavigationItemSelectedListener {
 
@@ -60,10 +54,10 @@ public class AdminActivity extends AppCompatActivity implements  BottomNavigatio
                 fragment = new HomeFragment();
                 break;
             case R.id.navigation_item:
-                fragment = new AdditemFragment();
+                fragment = new LaporanFragment();
                 break;
             case R.id.navigation_laporan:
-                fragment = new LaporanFragment();
+                fragment = new ProfilFragment();
                 break;
         }
         return loadFragment(fragment);
