@@ -53,10 +53,10 @@ public class AdminActivity extends AppCompatActivity implements  BottomNavigatio
             case R.id.navigation_home:
                 fragment = new HomeFragment();
                 break;
-            case R.id.navigation_item:
+            case R.id.navigation_laporan:
                 fragment = new LaporanFragment();
                 break;
-            case R.id.navigation_laporan:
+            case R.id.navigation_profil:
                 fragment = new ProfilFragment();
                 break;
         }

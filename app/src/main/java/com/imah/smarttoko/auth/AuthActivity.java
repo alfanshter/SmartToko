@@ -45,7 +45,17 @@ public class AuthActivity extends AppCompatActivity {
                         Intent intent = new Intent(AuthActivity.this, AdminActivity.class);
                         startActivity(intent);
                         finish();
-                    }else {
+                    }else if (edt_email.equals("Pembelian") && edt_password.equals("beli")){
+                        Preferences.setLoggedInUser(getBaseContext(),Preferences.getRegisteredUser(getBaseContext()));
+                        Preferences.setLoggedInStatus(getBaseContext(),true);
+
+                        Preferences.setIsLogin(getBaseContext(),"Pembelian");
+                        Intent intent = new Intent(AuthActivity.this, AdminActivity.class);
+                        startActivity(intent);
+                        finish();
+
+                    }
+                    else {
                         Snackbar.make(v, R.string.passwor_salah, Snackbar.LENGTH_LONG).show();
                     }
                 }else {

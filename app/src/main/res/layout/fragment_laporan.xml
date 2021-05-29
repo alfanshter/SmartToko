@@ -5,134 +5,55 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".admin.ui.additem.LaporanFragment" >
-    <ScrollView
+    tools:context=".admin.ui.additem.LaporanFragment"
+    android:background="#FFF7F7"
+    >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="24dp"
+        android:text="@string/title_laporanjual"
+        android:fontFamily="@font/poppins"
+        android:textStyle="bold"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:id="@+id/textmenu1" />
+
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="24dp"
+        android:text="@string/list_barang"
+        android:fontFamily="@font/poppins"
+        android:textStyle="bold"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_below="@id/textmenu1"
+        android:id="@+id/txt_menu1" />
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txt_menu1"
+        android:layout_marginTop="10dp"
+        android:orientation="vertical"
+        android:background="#FFF7F7"
+        android:id="@+id/barismenu4">
 
-        <RelativeLayout
+
+        <androidx.recyclerview.widget.RecyclerView
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginRight="10dp"
+            android:id="@+id/rv_reportitem" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_margin="20dp"
-                android:id="@+id/baris1">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/insert_barang"
-                    android:layout_gravity="center_horizontal"
-                    android:textColor="#000"
-                    android:fontFamily="@font/poppins_semibold"
-                    android:id="@+id/judul"
-                    android:textSize="24dp"
-
-                    />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/kode_barang"
-                    android:layout_marginTop="30dp"
-                    android:id="@+id/nama_makanan"
-                    android:textSize="14dp"
-                    android:fontFamily="@font/poppins"
-
-                    />
-
-                <EditText
-                    android:id="@+id/edt_kodebarang"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textColorHint="@color/black"
-                    android:background="@drawable/kotakisi"
-                    android:paddingLeft="10dp"
-                    android:textColor="@color/black"
-                    android:textSize="16sp"
-                    android:text="@={viewmodel.nama_makanan}"
-                    android:layout_marginTop="10dp"
-                    android:inputType="text" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/nama_barang"
-                    android:layout_marginTop="10dp"
-                    android:id="@+id/edt_namabarang"
-                    android:textSize="14dp"
-                    android:fontFamily="@font/poppins"
-
-                    />
-
-                <EditText
-                    android:id="@+id/edt_nama"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textColorHint="@color/black"
-                    android:background="@drawable/kotakisi"
-                    android:layout_marginTop="10dp"
-                    android:paddingLeft="10dp"
-                    android:textColor="@color/black"
-                    android:textSize="16sp"
-                    android:inputType="text" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/harga_barang"
-                    android:layout_marginTop="10dp"
-                    android:textSize="14dp"
-                    android:fontFamily="@font/poppins"
-
-                    />
-
-                <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textColorHint="@color/black"
-                    android:background="@drawable/kotakisi"
-                    android:layout_marginTop="10dp"
-                    android:paddingLeft="10dp"
-                    android:inputType="number"
-                    android:id="@+id/edt_hargabarang"
-                    android:textColor="@color/black"
-                    android:textSize="16sp" />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/jumlah_barang"
-                    android:layout_marginTop="10dp"
-                    android:id="@+id/txt_keterangan"
-                    android:textSize="14dp"
-                    android:fontFamily="@font/poppins"
-
-                    />
-
-                <EditText
-                    android:id="@+id/edt_jumlahbarang"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textColorHint="@color/black"
-                    android:background="@drawable/kotakisi"
-                    android:layout_marginTop="10dp"
-                    android:paddingLeft="10dp"
-                    android:inputType="number"
-                    android:textColor="@color/black"
-                    android:textSize="16sp" />
-
-
-
-
-            </LinearLayout>
-
-
-        </RelativeLayout>
-
-
-    </ScrollView>
+    </LinearLayout>
 
 </RelativeLayout>

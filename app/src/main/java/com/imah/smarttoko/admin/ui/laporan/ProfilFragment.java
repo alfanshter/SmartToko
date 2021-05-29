@@ -1,5 +1,6 @@
 package com.imah.smarttoko.admin.ui.laporan;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,29 +12,34 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.imah.smarttoko.databinding.FragmentNotificationsBinding;
+import com.imah.smarttoko.admin.AdminActivity;
+import com.imah.smarttoko.auth.AuthActivity;
+import com.imah.smarttoko.databinding.FragmentProfilBinding;
+import com.imah.smarttoko.session.Preferences;
 
 public class ProfilFragment extends Fragment {
 
-    private ProfilViewModel notificationsViewModel;
-private FragmentNotificationsBinding binding;
+    private ProfilViewModel profilViewModelViewModel;
+private FragmentProfilBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
             ViewGroup container, Bundle savedInstanceState) {
-        notificationsViewModel =
+        profilViewModelViewModel =
                 new ViewModelProvider(this).get(ProfilViewModel.class);
 
-    binding = FragmentNotificationsBinding.inflate(inflater, container, false);
-    View root = binding.getRoot();
+    binding = FragmentProfilBinding.inflate(inflater, container, false);
 
-        final TextView textView = binding.textNotifications;
-        notificationsViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
-            }
-        });
-        return root;
+    binding.btnLogout.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            Preferences.setIsLogin(getActivity(),"");
+            Intent intent = new Intent(requireContext().getApplicationContext(), AuthActivity.class);
+            startActivity(intent);
+            getActivity().finish();
+
+        }
+    });
+        return binding.getRoot();
     }
 
 @Override
