@@ -22,9 +22,14 @@
     <string name="edit">Edit</string>
     <string name="hapus">Delete</string>
     <string name="barang_tidakada">Item not found</string>
-
-
-
+    <string name="title_activity_customer">CustomerActiity</string>
+    <string name="history">History</string>
+    <string name="proses">Process</string>
+    <string name="total">Total price</string>
+    <string name="jumlah_beli">Purchase amount</string>
+    <string name="riwayat_transaksi">transaction history</string>
+    <string name="waktu">Time</string>
+    <string name="item_limit">Item over limit</string>
 
 
 </resources>

@@ -6,7 +6,9 @@ import androidx.room.Insert;
 import androidx.room.Query;
 
 import com.imah.smarttoko.database.entitas.Barang;
+import com.imah.smarttoko.database.entitas.Transaksi;
 
+import java.sql.Timestamp;
 import java.util.List;
 
 @Dao
@@ -25,4 +27,6 @@ public interface BarangDao {
 
     @Delete
     void delete(Barang barang);
+
+
 }

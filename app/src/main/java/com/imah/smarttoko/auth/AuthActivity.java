@@ -15,6 +15,7 @@ import com.google.android.material.snackbar.Snackbar;
 import com.imah.smarttoko.R;
 import com.imah.smarttoko.SplashscreenActivity;
 import com.imah.smarttoko.admin.AdminActivity;
+import com.imah.smarttoko.customer.ui.CustomerActivity;
 import com.imah.smarttoko.session.Preferences;
 
 public class AuthActivity extends AppCompatActivity {
@@ -50,7 +51,7 @@ public class AuthActivity extends AppCompatActivity {
                         Preferences.setLoggedInStatus(getBaseContext(),true);
 
                         Preferences.setIsLogin(getBaseContext(),"Pembelian");
-                        Intent intent = new Intent(AuthActivity.this, AdminActivity.class);
+                        Intent intent = new Intent(AuthActivity.this, CustomerActivity.class);
                         startActivity(intent);
                         finish();
 
@@ -77,8 +78,10 @@ public class AuthActivity extends AppCompatActivity {
             Intent intent = new Intent(AuthActivity.this, AdminActivity.class);
             startActivity(intent);
             finish();
-        }else if (Preferences.getIsLogin(getBaseContext()).equals("Pembeli")){
-
+        }else if (Preferences.getIsLogin(getBaseContext()).equals("Pembelian")){
+            Intent intent = new Intent(AuthActivity.this, CustomerActivity.class);
+            startActivity(intent);
+            finish();
         }
     }
 }

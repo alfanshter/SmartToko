@@ -1,6 +1,5 @@
-package com.imah.smarttoko.admin.adapter;
+package com.imah.smarttoko.adapter;
 
-import android.app.Dialog;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;

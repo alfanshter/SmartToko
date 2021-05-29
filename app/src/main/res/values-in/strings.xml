@@ -23,7 +23,14 @@
     <string name="edit">Edit</string>
     <string name="hapus">Hapus</string>
     <string name="barang_tidakada">Barang tidak ada</string>
-
+    <string name="title_activity_customer">Halaman Customer</string>
+    <string name="history">Riwayat</string>
+    <string name="proses">Proses</string>
+    <string name="total">Harga total</string>
+    <string name="jumlah_beli">Jumlah beli</string>
+    <string name="riwayat_transaksi">Riwayat transaksi</string>
+    <string name="waktu">Waktu</string>
+    <string name="item_limit">Barang melebihi batas</string>
 
 
 

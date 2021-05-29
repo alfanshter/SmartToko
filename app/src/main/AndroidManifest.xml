@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.imah.smarttoko" >
+    package="com.imah.smarttoko">
 
     <application
         android:allowBackup="true"
@@ -8,14 +8,14 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.SmartToko" >
-        <activity android:name=".admin.TambahActivity" >
-        </activity>
+        android:theme="@style/Theme.SmartToko">
+        <activity android:name=".customer.ui.DetailitemActivity"></activity>
+        <activity android:name=".customer.ui.CustomerActivity"></activity>
+        <activity android:name=".admin.TambahActivity"></activity>
         <activity
             android:name=".admin.AdminActivity"
-            android:label="@string/title_activity_admin" >
-        </activity>
-        <activity android:name=".SplashscreenActivity" >
+            android:label="@string/title_activity_admin" />
+        <activity android:name=".SplashscreenActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -30,10 +30,9 @@ public class TambahActivity extends AppCompatActivity {
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_tambah);
         database = AppDatabase.getInstance(getApplicationContext());
-
-
         Intent intent = getIntent();
         id = intent.getStringExtra("id");
+
         if (id != null) {
             if (Integer.parseInt(id) > 0) {
                 isedit = true;

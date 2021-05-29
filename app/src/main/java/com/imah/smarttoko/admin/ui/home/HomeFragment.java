@@ -9,28 +9,22 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.imah.smarttoko.MainActivity;
 import com.imah.smarttoko.R;
 import com.imah.smarttoko.admin.TambahActivity;
-import com.imah.smarttoko.admin.adapter.BarangAdapter;
+import com.imah.smarttoko.adapter.BarangAdapter;
 import com.imah.smarttoko.database.AppDatabase;
 import com.imah.smarttoko.database.entitas.Barang;
 import com.imah.smarttoko.databinding.FragmentHomeBinding;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 public class HomeFragment extends Fragment {
     private HomeViewModel homeViewModel;

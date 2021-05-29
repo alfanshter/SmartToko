@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation2"
+    app:startDestination="@+id/navigation_dashboardcustomer">
+
+    <fragment
+        android:id="@+id/navigation_riwayatcustomer"
+        android:name="com.imah.smarttoko.customer.ui.laporan_customer.LaporanCustomerFragment"
+        android:label="@string/title_home"
+        tools:layout="@layout/fragment_dashboard" />
+
+    <fragment
+        android:id="@+id/navigation_dashboardcustomer"
+        android:name="com.imah.smarttoko.customer.ui.dashboard.DashboardFragment"
+        android:label="@string/title_laporanjual"
+        tools:layout="@layout/fragment_laporancustomer" />
+
+    <fragment
+        android:id="@+id/navigation_profilcustomer"
+        android:name="com.imah.smarttoko.customer.ui.profil.ProfilCustomerFragment"
+        android:label="@string/profil"
+        tools:layout="@layout/fragment_profilcustomer" />
+</navigation>
