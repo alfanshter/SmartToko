@@ -127,22 +127,6 @@ private FragmentDashboardBinding binding;
 
     }
 
-    private void filter(String text) {
-        //new array list that will hold the filtered data
-        ArrayList<Barang> filterdNames = new ArrayList<>();
-
-        //looping through existing elements
-        for (Barang barang : list) {
-            //if the existing elements contains the search input
-            if (barang.nama_barang.toLowerCase().contains(text.toLowerCase())) {
-                //adding the element to filtered list
-                filterdNames.add(barang);
-            }
-        }
-
-        //calling a method of the adapter class and passing the filtered list
-        barangAdapter.filterList(filterdNames);
-    }
 
 
     @Override

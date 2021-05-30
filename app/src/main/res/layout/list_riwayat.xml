@@ -3,7 +3,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:backgroundTint="#FDFAE2"
     app:cardCornerRadius="15dp"
     android:elevation="5dp"
     android:layout_marginRight="15dp"
@@ -28,7 +27,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/aldrich_regular"
         android:text="@string/kode_barang"
-        android:id="@+id/txt_kodebarang"
+        android:id="@+id/txt_kodetransaksi"
         />
     <TextView
         android:layout_marginTop="2dp"
@@ -36,7 +35,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/aldrich_regular"
         android:text="@string/nama_barang"
-        android:id="@+id/txt_namabarang"
+        android:id="@+id/txt_namatransaksi"
         />
     <TextView
         android:layout_marginTop="2dp"
@@ -44,15 +43,15 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/aldrich_regular"
         android:text="@string/harga_barang"
-        android:id="@+id/txt_hargabarang"
+        android:id="@+id/txt_hargatransaksi"
         />
     <TextView
         android:layout_marginTop="2dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/aldrich_regular"
-        android:text="@string/jumlah_barang"
-        android:id="@+id/txt_jumlahbarang"
+        android:text="@string/jumlah_beli"
+        android:id="@+id/txt_jumlahtransaksi"
         />
     <TextView
         android:layout_marginTop="2dp"
@@ -62,5 +61,22 @@
         android:text="@string/discount"
         android:id="@+id/txt_diskon"
         />
+
+    <TextView
+        android:layout_marginTop="2dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/aldrich_regular"
+        android:text="@string/total"
+        android:id="@+id/txt_hargatotal"
+        />
+    <TextView
+        android:layout_marginTop="2dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/aldrich_regular"
+        android:id="@+id/txt_time"
+        />
+
 </LinearLayout>
 </androidx.cardview.widget.CardView>

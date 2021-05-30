@@ -16,7 +16,7 @@ public interface BarangDao {
     @Query("SELECT * FROM Barang")
     List<Barang> getAll();
 
-    @Query("SELECT * FROM Barang WHERE nama_barang=:nama_barang")
+    @Query("SELECT * FROM Barang WHERE nama_barang LIKE :nama_barang")
     List<Barang> getnama(String nama_barang);
 
     @Query("INSERT INTO Barang (kode_barang,nama_barang,harga_barang,jumlah_barang,diskon_barang) VALUES(:kode_barang,:nama_barang,:harga_barang,:jumlah_barang,:diskon_barang)")
@@ -24,6 +24,9 @@ public interface BarangDao {
 
     @Query("UPDATE Barang SET  jumlah_barang=:jumlah_barang,kode_barang=:kode_barang,diskon_barang=:diskon_barang WHERE id=:id")
     void update(int id, Integer jumlah_barang, String kode_barang,Integer diskon_barang);
+
+    @Query("UPDATE Barang SET jumlah_barang=:jumlah_barang WHERE id=:id")
+    void updatejumlah(int jumlah_barang, int id);
 
     @Query("SELECT * FROM Barang WHERE id=:id")
     Barang get(int id);

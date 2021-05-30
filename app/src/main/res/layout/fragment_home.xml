@@ -1,16 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".admin.ui.home.HomeFragment"
-    android:background="#FFF7F7">
-
     <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:background="#FDFAE2"
+        android:layout_height="match_parent"
+        tools:context=".admin.ui.home.HomeFragment">
 
         <TextView
             android:layout_width="wrap_content"
@@ -25,7 +21,7 @@
 
         <RelativeLayout
             android:layout_marginTop="10dp"
-            android:background="#FFF7F7"
+            android:backgroundTint="#FDFAE2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/textmenu1"
@@ -74,13 +70,13 @@
             android:layout_below="@+id/txt_menu1"
             android:layout_marginTop="10dp"
             android:orientation="vertical"
-            android:background="#FFF7F7"
+            android:background="#FDFAE2"
             android:id="@+id/barismenu4">
 
 
             <androidx.recyclerview.widget.RecyclerView
                 android:layout_width="match_parent"
-
+                android:background="#FDFAE2"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:layout_marginLeft="10dp"
@@ -91,4 +87,3 @@
         </LinearLayout>
 
     </RelativeLayout>
-</ScrollView>

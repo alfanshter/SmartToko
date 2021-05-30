@@ -79,6 +79,7 @@ public class HomeFragment extends Fragment {
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(requireContext().getApplicationContext(), RecyclerView.VERTICAL, false);
         binding.rvListitem.setLayoutManager(layoutManager);
         binding.rvListitem.setAdapter(barangAdapter);
+        binding.rvListitem.setHasFixedSize(true);
 
         binding.btnAdditem.setOnClickListener(new View.OnClickListener() {
             @Override

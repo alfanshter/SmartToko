@@ -177,5 +177,19 @@
             app:layout_constraintHorizontal_bias="0.1"
             app:layout_constraintStart_toEndOf="@+id/txt_counter"
             app:layout_constraintTop_toBottomOf="@+id/relativeLayout" />
+
+        <TextView
+            android:id="@+id/txt_discount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/discount"
+            android:textSize="18dp"
+            android:fontFamily="@font/aldrich"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toTopOf="@+id/proses"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/hargatotal"
+            app:layout_constraintVertical_bias="0.120000005" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

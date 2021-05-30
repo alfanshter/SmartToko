@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:background="?android:attr/windowBackground"
+        android:background="#FDFAE2"
         app:itemIconTint="@color/black"
         app:itemTextColor="@color/colordongker"
         app:menu="@menu/bottom_nav_menu" />
@@ -20,6 +20,7 @@
         android:id="@+id/nav_host_fragment_activity_admin"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_above="@id/nav_view"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
 
 

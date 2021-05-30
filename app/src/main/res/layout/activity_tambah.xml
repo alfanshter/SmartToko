@@ -13,6 +13,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:id="@+id/rv_tambah"
+        android:background="#FDFAE2"
         android:layout_height="match_parent"
         tools:context=".admin.TambahActivity">
 

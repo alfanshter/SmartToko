@@ -17,18 +17,23 @@ import com.imah.smarttoko.database.entitas.Transaksi;
 import com.imah.smarttoko.databinding.ActivityDetailitemBinding;
 
 import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 public class DetailitemActivity extends AppCompatActivity {
     private String id;
     private Integer jumlah_counter = 0;
     int hargatotal = 0;
+    int diskon = 0;
+    int jumlah_diskon = 0;
+    int jumlah_barang = 0;
     private Boolean isedit = false;
     private ActivityDetailitemBinding binding;
     private AppDatabase database;
-    int time = (int) (System.currentTimeMillis());
-    Timestamp tsTemp = new Timestamp(time);
-    String ts =  tsTemp.toString();
+    SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy-hh-mm-ss");
+    String format = simpleDateFormat.format(new Date());
+    String ts =  format.toString();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,15 +51,17 @@ public class DetailitemActivity extends AppCompatActivity {
                 binding.hargaBarang.setText(String.format(getString(R.string.harga_barang)) + " : " + barang.harga);
                 binding.diskonBarang.setText(String.format(getString(R.string.discount)) + " : " + barang.diskon_barang);
                 binding.jumlahBarang.setText(String.format(getString(R.string.jumlah_barang)) + " : " + barang.jumlah);
-
                 binding.btnDown.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         if (jumlah_counter > 0) {
                             jumlah_counter -= 1;
                             binding.txtCounter.setText(jumlah_counter.toString());
-                            hargatotal = jumlah_counter * barang.harga;
+                            diskon = (barang.harga * barang.diskon_barang) / 100;
+                            jumlah_diskon = jumlah_counter * diskon;
+                            hargatotal = (jumlah_counter * barang.harga);
                             binding.hargatotal.setText(String.valueOf(hargatotal));
+                            binding.txtDiscount.setText(String.format(getString(R.string.discount)) + " : " + jumlah_diskon);
 
                         }
                     }
@@ -66,8 +73,12 @@ public class DetailitemActivity extends AppCompatActivity {
                         if (jumlah_counter >= 0) {
                             jumlah_counter += 1;
                             binding.txtCounter.setText(jumlah_counter.toString());
-                            hargatotal = jumlah_counter * barang.harga;
+                            diskon = (barang.harga * barang.diskon_barang) / 100;
+                            jumlah_diskon = jumlah_counter * diskon;
+                            hargatotal = (jumlah_counter * barang.harga) ;
                             binding.hargatotal.setText(String.valueOf(hargatotal));
+                            binding.txtDiscount.setText(String.format(getString(R.string.discount)) + " : " + jumlah_diskon);
+
 
                         }
                     }
@@ -76,6 +87,9 @@ public class DetailitemActivity extends AppCompatActivity {
                 binding.proses.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+                        diskon = (barang.harga * barang.diskon_barang * jumlah_counter) / 100;
+                        hargatotal = (jumlah_counter * barang.harga) - diskon;
+                        jumlah_barang = barang.jumlah - jumlah_counter;
                         Barang barang = database.barangDao().get(Integer.parseInt(id));
                         if (Integer.parseInt(binding.txtCounter.getText().toString()) > barang.jumlah ){
                             Snackbar.make(findViewById(R.id.detailitem), R.string.item_limit, Snackbar.LENGTH_LONG).show();
@@ -87,6 +101,9 @@ public class DetailitemActivity extends AppCompatActivity {
                         else {
                             database.transaksiDao().insertTransaksi(barang.id, barang.kode_barang, barang.nama_barang,
                                     barang.harga, Integer.parseInt(binding.txtCounter.getText().toString()), barang.diskon_barang, hargatotal, ts);
+                            database.riwayatDao().insertRiwayat(barang.id, barang.kode_barang, barang.nama_barang,
+                                    barang.harga, Integer.parseInt(binding.txtCounter.getText().toString()), barang.diskon_barang, hargatotal, ts);
+                            database.barangDao().updatejumlah(jumlah_barang,barang.id);
                             Toast.makeText(getBaseContext(), "Transaksi berhasil", Toast.LENGTH_LONG).show();
                             finish();
                         }

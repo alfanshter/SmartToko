@@ -11,13 +11,15 @@ import androidx.room.RoomDatabase;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
 import com.imah.smarttoko.database.dao.BarangDao;
+import com.imah.smarttoko.database.dao.RiwayatDao;
 import com.imah.smarttoko.database.dao.TransaksiDao;
 import com.imah.smarttoko.database.entitas.Barang;
+import com.imah.smarttoko.database.entitas.Riwayat;
 import com.imah.smarttoko.database.entitas.Transaksi;
 
 import org.jetbrains.annotations.NotNull;
 
-@Database(entities = {Barang.class,Transaksi.class} ,  version = 1)
+@Database(entities = {Barang.class,Transaksi.class, Riwayat.class} ,  version = 2, exportSchema = false)
 public abstract class AppDatabase extends RoomDatabase {
 
     private static AppDatabase sInstance;
@@ -28,6 +30,7 @@ public abstract class AppDatabase extends RoomDatabase {
 
     public abstract BarangDao barangDao();
     public abstract TransaksiDao transaksiDao();
+    public abstract RiwayatDao riwayatDao();
 
     private void setDatabaseCreated(){
         mIsdatabaseCreated.postValue(true);

@@ -20,7 +20,7 @@ import com.imah.smarttoko.session.Preferences;
 
 public class AuthActivity extends AppCompatActivity {
 
-    Button btnlogin;
+    Button btnlogin,changebahasa;
     EditText email,password ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +30,16 @@ public class AuthActivity extends AppCompatActivity {
         btnlogin = findViewById(R.id.btn_login);
         email = findViewById(R.id.username_input);
         password = findViewById(R.id.pass);
+        changebahasa = findViewById(R.id.change_bahasa);
 
+        changebahasa.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Settings.ACTION_LOCALE_SETTINGS);
+                startActivity(intent);
+
+            }
+        });
         btnlogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -64,9 +73,6 @@ public class AuthActivity extends AppCompatActivity {
 
                 }
 
-
-//                Intent intent = new Intent(Settings.ACTION_LOCALE_SETTINGS);
-//                startActivity(intent);
             }
         });
     }

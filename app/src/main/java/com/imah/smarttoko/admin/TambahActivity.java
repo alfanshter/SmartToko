@@ -54,28 +54,37 @@ public class TambahActivity extends AppCompatActivity {
                     int jumlah_barang = Integer.parseInt(binding.edtJumlahbarang.getText().toString());
                     String kode_barang = binding.edtKodebarang.getText().toString();
 
-                    String[] part = kode_barang.split("(?<=\\D)(?=\\d)");
-                    Integer diskon = Integer.valueOf(part[1]);
 
                     if (isedit) {
+                        String[] part = kode_barang.split("(?<=\\D)(?=\\d)");
+                        Integer diskon = Integer.valueOf(part[1]);
+
                         binding.edtKodebarang.setVisibility(View.VISIBLE);
                         database.barangDao().update(Integer.parseInt(id), jumlah_barang, binding.edtKodebarang.getText().toString(), diskon);
                         finish();
                     } else {
-                        if (part[0].equals("AND")) {
-                            database.barangDao().insertAll("AND" + diskon, "Android", 1000000, jumlah_barang, diskon);
-                            finish();
-                        } else if (part[0].equals("IOS")) {
-                            database.barangDao().insertAll("IOS" + diskon, "Apple", 2000000, jumlah_barang, diskon);
-                            finish();
-                        } else if (part[0].equals("BLB")) {
-                            database.barangDao().insertAll("BLB" + diskon, "Blackberry", 1750000, jumlah_barang, diskon);
-                            finish();
-                        } else if (part[0].equals("WNP")) {
-                            database.barangDao().insertAll("WNP" + diskon, "Windows Phone", 2500000, jumlah_barang, diskon);
-                            finish();
-                        } else {
-                            Snackbar.make(findViewById(R.id.rv_tambah), R.string.barang_tidakada, Snackbar.LENGTH_LONG).show();
+                        try {
+                            String[] part = kode_barang.split("(?<=\\D)(?=\\d)");
+                            Integer diskon = Integer.valueOf(part[1]);
+
+                            if (part[0].equals("AND")) {
+                                database.barangDao().insertAll("AND" + diskon, "Android", 1000000, jumlah_barang, diskon);
+                                finish();
+                            } else if (part[0].equals("IOS")) {
+                                database.barangDao().insertAll("IOS" + diskon, "Apple", 2000000, jumlah_barang, diskon);
+                                finish();
+                            } else if (part[0].equals("BLB")) {
+                                database.barangDao().insertAll("BLB" + diskon, "Blackberry", 1750000, jumlah_barang, diskon);
+                                finish();
+                            } else if (part[0].equals("WNP")) {
+                                database.barangDao().insertAll("WNP" + diskon, "Windows Phone", 2500000, jumlah_barang, diskon);
+                                finish();
+                            } else {
+                                Snackbar.make(findViewById(R.id.rv_tambah), R.string.barang_tidakada, Snackbar.LENGTH_LONG).show();
+                            }
+
+                        }catch (Exception e){
+                            return;
                         }
 
                     }
