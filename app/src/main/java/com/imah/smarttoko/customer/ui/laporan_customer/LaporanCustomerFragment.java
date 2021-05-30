@@ -87,4 +87,14 @@ private FragmentLaporancustomerBinding binding;
         super.onDestroyView();
         binding = null;
     }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        list.clear();
+        list.addAll(database.transaksiDao().getAllTransaksi());
+        transaksiAdapter.notifyDataSetChanged();
+
+    }
+
 }
